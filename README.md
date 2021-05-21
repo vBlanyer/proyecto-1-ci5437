@@ -18,8 +18,8 @@ Consideramos los siguientes problemas:
 
 Estudiar los &aacute;rboles de b&uacute;queda y su factor de ramificaci&oacute;n sin
 eliminaci&oacute;n de duplicados y con eliminaci&oacute;n parcial de duplicados.
-Se deben crear tablas para cada problema donde se reporte el nu&uacute;mero de estados
-a cada profundidad en el &aacute;rbol de b&uacute;squeda a partir del estado goal,
+Se deben crear tablas para cada problema donde se reporte el n&uacute;mero de estados
+a cada profundidad en el &aacute;rbol de b&uacute;squeda a partir del estado objetivo,
 hasta las profundidad m&aacute;xima que se alcance en 15 minutos de ejecuci&oacute;n.
 
 # Heur&iacute;sticas
