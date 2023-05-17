@@ -4,7 +4,7 @@ El objetivo del proyecto es aprender sobre el modelo de espacio de estados y sob
 los diferentes algoritmos de b&uacute;squeda heur&iacute;stica. No s&oacute;lo se
 evaluar&aacute; la correctitud de la implementaci&oacute;n; es importante que los
 algoritmos sean eficientes y puedan resolver los problemas propuestos en los
-tiempos estipulados.
+tiempos estipulados. Tambi&eacute;n es importante su &aacute;nalisis de resultados en el informe.
 
 # Problemas
 
@@ -16,11 +16,11 @@ Consideramos los siguientes problemas:
 
 # &Aacute;rboles de b&uacute;squeda
 
-Estudiar los &aacute;rboles de b&uacute;queda y su factor de ramificaci&oacute;n sin
-eliminaci&oacute;n de duplicados y con eliminaci&oacute;n parcial de duplicados.
+Estudiar los &aacute;rboles de b&uacute;squeda y su factor de ramificaci&oacute;n sin
+eliminaci&oacute;n de duplicados y con eliminaci&oacute;n parcial de duplicados (poda de ancestros).
 Se deben crear tablas para cada problema donde se reporte el n&uacute;mero de estados
 a cada profundidad en el &aacute;rbol de b&uacute;squeda a partir del estado objetivo,
-hasta las profundidad m&aacute;xima que se alcance en 15 minutos de ejecuci&oacute;n.
+hasta la profundidad m&aacute;xima que se alcance en 15 minutos de ejecuci&oacute;n.
 
 # Heur&iacute;sticas
 
@@ -44,14 +44,18 @@ parcial de duplicados. Para las heur&iacute;sticas en cada problema:
 
 El tiempo m&aacute;ximo de ejecuci&oacute;n lo deciden ustedes seg&uacute;n los
 recursos que tengan a su disposici&oacute;n. Para A*, no permitan que el programa
-utilice memoria virtual (i.e. paginaci&oacute;n sobre disco) ya que correr&aacute; extremadamente
+utilice memoria virtual (paginaci&oacute;n sobre disco) ya que posiblemente correr&aacute; extremadamente
 lento y no podr&aacute;n resolver el problema (y la m&aacute;quina se les "congelar&aacute;").
 
 # Casos de prueba
 
 Se entregan casos de prueba para los n-puzzles y para el Cubo de Rubik. Para los
-problema restantes deben generar casos de prueba con el programa global/generator.cc
+problemas restantes deben generar casos de prueba con el programa global/generator.cc
 que se entrega en la distribuci&oacute;n de PSVN. Leer el programa para entenderlo
 y poder ejecutarlo. Se deben generar casos de prueba f&aacute;ciles y dif&iacute;ciles.
+
+Deben entregar su implementación de la solución junto a un informe que explique las decisiones tomadas y los resultados de sus ejecuciones.
+
+Cualquier trabajo extra (heurísticas o algoritmos extra implementados, otros métodos de eliminación de duplicados, etc...) contará para los puntos de participación.
 
 
