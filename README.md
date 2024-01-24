@@ -6,13 +6,29 @@ evaluar&aacute; la correctitud de la implementaci&oacute;n; es importante que lo
 algoritmos sean eficientes y puedan resolver los problemas propuestos en los
 tiempos estipulados. Tambi&eacute;n es importante su &aacute;nalisis de resultados en el informe.
 
+Para el proyecto se usará el lenguaje declarativo PSVN, con su conjunto de herramientas y documentación que será
+entregada a los estudiantes. **Se recomienda leer detenidamente los ejemplos, instrucciones y herramientas que vienen
+incluidas**, recuerde que todo lo que se incluye es para facilitar el trabajo en el proyecto.
+
+Será necesario utilizar C o C++ para trabajar con el API de PSVN y la implementación
+de algoritmos de búsqueda, para lo cuál también se incluyen ejemplos.
+
 # Problemas
 
 Consideramos los siguientes problemas:
+
 * N-puzzles: 15-puzzle y 24-puzzle
 * Cubo de Rubik: 3x3x3
 * Top spin: 12-4, 14-4, y 17-4
 * Torre de Hanoi con 4 astas: 12, 14, y 18 discos
+
+Se requiere que incluya representaciones en PSVN para cada uno de los dominios. Para los N-Puzzle, es útil revisar las lecciones incluidas,
+pues encontrará ejemplos muy similares que ayudarán a realizar sus representaciones.
+
+En el caso de los demás problemas, encontrará representaciones incluídas junto a PSVN, o en su defecto generadores para las mismas. Debe
+leer la información incluída para entender cómo funcionan estas representaciones.
+
+Debe incluir como parte de la entrega las representaciones en PSVN utilizadas para cada problema, así como una **breve** explicación
 
 # &Aacute;rboles de b&uacute;squeda
 
@@ -22,6 +38,8 @@ Se deben crear tablas para cada problema donde se reporte el n&uacute;mero de es
 a cada profundidad en el &aacute;rbol de b&uacute;squeda a partir del estado objetivo,
 hasta la profundidad m&aacute;xima que se alcance en 15 minutos de ejecuci&oacute;n.
 
+Puede utilizar el código incluído con PSVN como ayuda para calcular esto.
+
 # Heur&iacute;sticas
 
 Se deben implementar heur&iacute;sticas PDBs para cada problema. Para los n-puzzles
@@ -30,6 +48,9 @@ varias PDBs. Leer el paper "Additive Pattern Databases" de Felner et al. que se
 incluye, y el paper sobre el Cubo de Rubik. Para el Cubo de Rubik, las PDBs 
 est&aacute;ndar pueden tomar demasiado espacio; en ese caso, se pueden crear mas
 PDBs de menor tama&ntilde;o.
+
+En la documentación de PSVN hay secciones indicando como elaborar PDBs utilizando el lenguaje,
+así como ejemplos de ello. Deben incluir todos los archivos que utilicen para generarlos.
 
 # Algoritmos informados
 
@@ -55,7 +76,5 @@ que se entrega en la distribuci&oacute;n de PSVN. Leer el programa para entender
 y poder ejecutarlo. Se deben generar casos de prueba f&aacute;ciles y dif&iacute;ciles.
 
 Deben entregar su implementación de la solución junto a un informe que explique las decisiones tomadas y los resultados de sus ejecuciones.
-
-Cualquier trabajo extra (heurísticas o algoritmos extra implementados, otros métodos de eliminación de duplicados, etc...) contará para los puntos de participación.
 
 
