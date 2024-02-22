@@ -47,9 +47,9 @@ int main(int argc, char **argv) {
             return 0; 
       }
 
-      printf("The state you entered is: ");
-      print_state(stdout, &state);
-      printf("\n");
+      // printf("The state you entered is: ");
+      // print_state(stdout, &state);
+      // printf("\n");
 
 
       cout << "costo: " + best_first_search(&state, *manhattan) << endl;
