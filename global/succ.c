@@ -39,7 +39,6 @@ int main(int argc, char **argv ) {
 
     printf("The state you entered is: ");
     print_state(stdout, &state);
-    printf("estado: %c", state);
     printf("\n");
 
     // LOOP THOUGH THE CHILDREN ONE BY ONE

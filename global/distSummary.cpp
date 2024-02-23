@@ -10,13 +10,8 @@ Copyright (C) 2013 by the PSVN Research Group, University of Alberta
 
 #include <vector>
 #include "priority_queue.hpp"
-#include <iostream>
-
-using namespace std;
 
 int main(int argc, char **argv) {
-
-
     int64_t totalNodes, numAtD;  // counters
     state_t state, child;   // NOTE: "child" will be a predecessor of state, not a successor
     int d, ruleid;
@@ -33,16 +28,65 @@ int main(int argc, char **argv) {
         open.Add(0, 0, state);
     } while( next_goal_state(&state, &d) );
 
-    int n;
+    d = 0;
+    numAtD = 0;
+    totalNodes = 0;
+    while( !open.Empty() ) {
+        // get current distance from goal; since operator costs are
+        // non-negative this distance is monotonically increasing
+        if( open.CurrentPriority() > d ) {
+            printf("%"PRId64" states at distance %d\n", numAtD, d);
+            d = open.CurrentPriority();
+            numAtD = 0;
+        }
 
-    for(int i = 0; i < 7; i++) {
-        n = state.vars[0];
+        // remove top state from priority state
+        state = open.Top();
+        open.Pop();
+        
+        // check if we already expanded this state.
+        // (entries on the open list are not deleted if a cheaper path to a state is found)
+        const int *best_dist = state_map_get(map, &state);
+        assert(best_dist != NULL);
+        if( *best_dist < d ) continue;
+        
+        numAtD++;
+        totalNodes++;
+
+        // look at all predecessors of the state
+        init_bwd_iter(&iter, &state);
+        while( (ruleid = next_ruleid(&iter) ) >= 0 ) {
+            apply_bwd_rule(ruleid, &state, &child);
+            const int child_d = d + get_bwd_rule_cost(ruleid);
+
+            // check if either this child has not been seen yet or if
+            // there is a new cheaper way to get to this child.
+            const int *old_child_d = state_map_get(map, &child);
+            if( (old_child_d == NULL) || (*old_child_d > child_d) ) {
+                // add to open with the new distance
+                state_map_add(map, &child, child_d);
+                open.Add(child_d, child_d, child);
+            }
+        }
     }
-
-    cout << n << endl;
-
-    print_state(stdout, &state);
-
+    
+    // print last level and total states
+    if( numAtD > 0 ) {
+        printf("%"PRId64" states at distance %d\n", numAtD, d);
+    }
+    printf("%"PRIu64" states in total.\n", totalNodes);
+    
+    // write the state map to a file
+    if( argc >= 2 ) {
+        file = fopen(argv[1], "w");
+        if( file == NULL ) {
+            fprintf(stderr, "could not open %s for writing\n", argv[1]);
+            exit(-1);
+        }
+        write_state_map(file, map);
+        fclose(file);
+    }
+    
     return 0;
 }
 
