@@ -63,7 +63,7 @@ abstractor:
 
 %.a_start: %.c ../../global/a_start.cpp
 	@echo "**** Constructing $@ ..."
-	@$(CXX) $(OPT) ../../global/a_start.cpp -include  $< -include top-spin-compact-12-4_PDB.cpp -o $@
+	@$(CXX) $(OPT) ../../global/a_start.cpp -include  $< -include 15_puzzle_PDBs.cpp -o $@
 	@rm -f $*.c
 
 .PHONY: clean

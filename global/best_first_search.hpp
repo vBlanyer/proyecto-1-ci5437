@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int best_first_search(state_t *init, unsigned (*heuristic) (state_t)) {
+int best_first_search(state_t *init, unsigned (*heuristic) (state_t), int tipo) {
       // variables para el estado y su iteracion
       state_t state, child; 
       int d, ruleid;
@@ -18,23 +18,23 @@ int best_first_search(state_t *init, unsigned (*heuristic) (state_t)) {
       q.Add(0, 0, *init); // Inicializacion de cola con el estado inicial con funcion de costo 0
       state_map_add(map, init, 0); // Inicializacion con peso del estado incial 0
 
-      int test = 5000000;
+      int test = 50000000000;
       while(!q.Empty() && test != 0) {
             test--;
             d = q.CurrentPriority();
 
-            cout << d << endl;
+            // cout << d << endl;
 
             state = q.Top();
             q.Pop();
-            printf("The state you entered is: ");
-            print_state(stdout, &state);
-            printf("\n");
+            // printf("The state you entered is: ");
+            // print_state(stdout, &state);
+            // printf("\n");
 
             const int *g = state_map_get(map, &state);
             //assert(g != NULL);
 
-            printf("valor de gasto %d y valor de f.c %d\n", *g, d);
+            // printf("valor de gasto %d y valor de f.c %d\n", *g, d);
             if(*g > d) continue;
 
             if(is_goal(&state)) { // Si el estado es el objetivo entonces retornamos el valor de la funcion de costo
@@ -48,9 +48,9 @@ int best_first_search(state_t *init, unsigned (*heuristic) (state_t)) {
                   int child_g = *g + get_fwd_rule_cost( ruleid );
                   int child_h = heuristic(child);
 
-                  printf("The state you entered is: ");
-                  print_state(stdout, &child);
-                  printf("funcion de costo %d\n", child_g+child_h);
+                  // printf("The state you entered is: ");
+                  // print_state(stdout, &child);
+                  // printf("funcion de costo %d\n", child_g+child_h);
 
                   if(child_h < INT_MAX) {
                         q.Add(child_g+child_h, child_g, child); 

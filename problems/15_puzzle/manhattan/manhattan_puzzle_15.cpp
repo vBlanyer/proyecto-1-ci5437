@@ -1,10 +1,11 @@
-#ifndef _MANHATTAN_PUZZLE_15_HPP
-#define _MANHATTAN_PUZZLE_15_HPP
-
 #include <iostream>
 
-unsigned manhattan(const state_t state) {
-      unsigned h;
+void loadPDB(){
+      
+}
+
+unsigned heuristic(state_t state) {
+      unsigned h = 0;
 
       for (int i = 0; i < 16; i++) {
             if (state.vars[i] != 0) { // Ignorar la pieza blanca
@@ -21,5 +22,3 @@ unsigned manhattan(const state_t state) {
       }
       return h;
 }
-
-#endif // _PRIORITY_QUEUE_HPP
