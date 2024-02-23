@@ -18,35 +18,47 @@ int best_first_search(state_t *init, unsigned (*heuristic) (state_t)) {
       q.Add(0, 0, *init); // Inicializacion de cola con el estado inicial con funcion de costo 0
       state_map_add(map, init, 0); // Inicializacion con peso del estado incial 0
 
-      while(!q.Empty()) {
-
+      int test = 5000000;
+      while(!q.Empty() && test != 0) {
+            test--;
             d = q.CurrentPriority();
 
             cout << d << endl;
 
             state = q.Top();
             q.Pop();
-  
+            printf("The state you entered is: ");
+            print_state(stdout, &state);
+            printf("\n");
+
             const int *g = state_map_get(map, &state);
             //assert(g != NULL);
 
-            if(*g < d) continue;
+            printf("valor de gasto %d y valor de f.c %d\n", *g, d);
+            if(*g > d) continue;
 
             if(is_goal(&state)) { // Si el estado es el objetivo entonces retornamos el valor de la funcion de costo
-                  return d;
+                  return *g;
             }
 
             init_fwd_iter(&iter, &state);
             while( (ruleid = next_ruleid(&iter) ) >= 0 ) {
                   apply_fwd_rule(ruleid, &state, &child);
 
-                  if(heuristic(child) < INT_MAX) {
-                        q.Add(*g+get_fwd_rule_cost(ruleid)+heuristic(child), *g+get_fwd_rule_cost(ruleid)+heuristic(child), child); 
-                        state_map_add(map, &child, *g+get_fwd_rule_cost(ruleid));
+                  int child_g = *g + get_fwd_rule_cost( ruleid );
+                  int child_h = heuristic(child);
+
+                  printf("The state you entered is: ");
+                  print_state(stdout, &child);
+                  printf("funcion de costo %d\n", child_g+child_h);
+
+                  if(child_h < INT_MAX) {
+                        q.Add(child_g+child_h, child_g, child); 
+                        state_map_add(map, &child, child_g);
                   }
-                  const int child_d = d + get_fwd_rule_cost(ruleid);
             }
-      }           
+      }
+      printf("finalizo\n"); 
       return 0; // No hay camino
 }
 
