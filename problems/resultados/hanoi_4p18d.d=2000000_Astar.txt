@@ -1,0 +1,3 @@
+<id> : <instance> :               <# generated nodes> <final-value> <time-in-secs>
+----------------------------------------------------------------------------------
+Killed
