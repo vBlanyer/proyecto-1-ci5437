@@ -5,7 +5,7 @@
 CC = gcc
 CXX = g++
 OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable
-PSVNOPT = --state_map --backward_moves --fwd_history_len=1 --bwd_history_len=1
+PSVNOPT = --state_map --backward_moves --fwd_history_len=0 --bwd_history_len=0
 
 psvn2c_core.c:
 	@cp ../../src/psvn2c_core.c ./psvn2c_core.c
@@ -45,7 +45,7 @@ psvn2c_abstraction.c:
 
 abstractor:
 	@echo "**** Constructing abstractor ..."
-	@$(CXX) $(OPT) ../../src/abstractor.cpp .../../src/psvn.cpp -o $@
+	@$(CXX) $(OPT) ../../src/abstractor.cpp ../../src/psvn.cpp -o $@
 
 %.pdb: abstractor
 	@rm -f `basename $*`.abst `basename $*`.pdb `basename $*`.psvn
@@ -60,10 +60,10 @@ abstractor:
 	@echo "**** Constructing $@ ..."
 	@$(CXX) $(OPT) ../../global/dist_pdb.cpp -include $< -o $@
 	@rm -f $*.c
-	
-%.bfs: %.c ../../algoritmos_busqueda/bfs.cpp
+
+%.a_start: %.c ../../global/a_start.cpp
 	@echo "**** Constructing $@ ..."
-	@$(CXX) $(OPT) ../../algoritmos_busqueda/bfs.cpp -include $< -o $@
+	@$(CXX) $(OPT) ../../global/a_start.cpp -include  $< -include torre_hanoi-4-12_PDB.cpp -o $@
 	@rm -f $*.c
 
 .PHONY: clean
