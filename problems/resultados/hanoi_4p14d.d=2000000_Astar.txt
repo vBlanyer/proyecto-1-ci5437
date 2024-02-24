@@ -1,0 +1,4 @@
+Ingrese el nombre del archivo de prueba: hanoi_4p14d.d=2000000
+<id> : <instance> :               <# generated nodes> <final-value> <time-in-secs>
+----------------------------------------------------------------------------------
+[4]+  Killed

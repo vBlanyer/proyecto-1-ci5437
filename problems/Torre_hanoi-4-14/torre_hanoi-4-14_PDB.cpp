@@ -9,13 +9,13 @@ state_t abs_state2;
 unsigned maximum;
 
 void loadPDB(){
-	FILE *f1 = fopen("abst_4-12_1.pdb","r");
-	FILE *f2 = fopen("abst_4-12_2.pdb","r");
+	FILE *f1 = fopen("abst_4-14_1.pdb","r");
+	FILE *f2 = fopen("abst_4-14_2.pdb","r");
 
-	abs1 = read_abstraction_from_file("abst_4-12_1.abst");
+	abs1 = read_abstraction_from_file("abst_4-14_1.abst");
 	map1 = read_state_map(f1);
 
-	abs2 = read_abstraction_from_file("abst_4-12_2.abst");
+	abs2 = read_abstraction_from_file("abst_4-14_2.abst");
 	map2 = read_state_map(f2);
 
 	fclose(f1);
