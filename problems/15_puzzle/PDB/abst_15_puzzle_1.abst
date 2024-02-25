@@ -1,4 +1,4 @@
 abstraction {
-  TILE { 0 1 2 3 0 0 6 7 0 0 0 0 0 0 0 0 }
+  TILE { 0 1 2 3 4 0 0 0 0 0 0 0 0 0 0 0 }
   projection { K K K K K K K K K K K K K K K K }
 }

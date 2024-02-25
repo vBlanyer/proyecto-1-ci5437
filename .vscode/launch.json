@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/pc/Desktop/proyecto-1-ci5437/algoritmos_busqueda",
-      "program": "c:/Users/pc/Desktop/proyecto-1-ci5437/algoritmos_busqueda/build/Debug/outDebug",
+      "cwd": "c:/Users/pc/Desktop/proyecto-1-ci5437/problems/15_puzzle/PDB",
+      "program": "c:/Users/pc/Desktop/proyecto-1-ci5437/problems/15_puzzle/PDB/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -5,7 +5,7 @@
 CC = gcc
 CXX = g++
 OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable
-PSVNOPT = --state_map --backward_moves --fwd_history_len=0 --bwd_history_len=0
+PSVNOPT = --state_map --backward_moves --fwd_history_len=0 --bwd_history_len=1
 
 psvn2c_core.c:
 	@cp ../../../src/psvn2c_core.c ./psvn2c_core.c
@@ -65,6 +65,12 @@ abstractor:
 	@echo "**** Constructing $@ ..."
 	@$(CXX) $(OPT) ../../../global/a_start.cpp -include  $< -include manhattan_puzzle_15.cpp -o $@
 	@rm -f $*.c
+
+%.distPartialPruningDuplicate: %.c ../../../global/distPartialPruningDuplicate.cpp
+	@echo "**** Constructing $@ ..."
+	@$(CXX) $(OPT) ../../../global/distPartialPruningDuplicate.cpp -include $< -o $@
+	@rm -f $*.c
+
 
 .PHONY: clean
 clean:

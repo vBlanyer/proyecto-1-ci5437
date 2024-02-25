@@ -1,6 +1,6 @@
 # This file was created by the abstractor program.
 # The source PSVN file was: 15-puzzle.psvn
-# The abstraction used is stored in file: abst_15_puzzle_1.abst
+# The abstraction used is stored in file: abst_15_puzzle_4.abst
 
 DOMAIN TILE 16
   0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
@@ -57,4 +57,4 @@ X - - - 0 - - - - - - - - - - - => 0 - - - X - - - - - - - - - - - LABEL MOVE_BL
 - - - - - - - - - - - X - - - 0 => - - - - - - - - - - - 0 - - - X LABEL MOVE_BLANK_UP_15 COST 1
 - - - - - - - - - - - - - - X 0 => - - - - - - - - - - - - - - 0 X LABEL MOVE_BLANK_LEFT_15 COST 1
 
-GOAL 0 1 2 3 4 0 0 0 0 0 0 0 0 0 0 0
+GOAL 0 0 0 0 0 0 0 0 0 0 0 0 0 13 14 15
